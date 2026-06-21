@@ -1,0 +1,26 @@
+[
+  {
+    "id": "web-platforms",
+    "title": "Web platforms",
+    "summary": "Production-grade web apps, from first commit to scale.",
+    "stack": ["React", "Node.js", "PostgreSQL"]
+  },
+  {
+    "id": "product-design",
+    "title": "Product design",
+    "summary": "Interfaces engineered to be built, not just admired.",
+    "stack": ["Figma", "Design systems"]
+  },
+  {
+    "id": "infra-devops",
+    "title": "Infra & DevOps",
+    "summary": "CI/CD, observability, and infrastructure that doesn't page you at 3am.",
+    "stack": ["Docker", "AWS", "Terraform"]
+  },
+  {
+    "id": "ai-integrations",
+    "title": "AI integrations",
+    "summary": "LLM features that ship, with guardrails that hold.",
+    "stack": ["Claude API", "RAG", "Evals"]
+  }
+]

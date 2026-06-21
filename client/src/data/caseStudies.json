@@ -1,0 +1,20 @@
+[
+  {
+    "id": "01",
+    "client": "Northbeam Logistics",
+    "result": "Cut dispatch time 38% with a real-time routing engine.",
+    "tags": ["web-platforms", "infra-devops"]
+  },
+  {
+    "id": "02",
+    "client": "Fennel Health",
+    "result": "Shipped a HIPAA-compliant intake flow in six weeks.",
+    "tags": ["product-design", "web-platforms"]
+  },
+  {
+    "id": "03",
+    "client": "Looman Studio",
+    "result": "AI assistant deflects 60% of support tickets.",
+    "tags": ["ai-integrations"]
+  }
+]

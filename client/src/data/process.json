@@ -1,0 +1,7 @@
+[
+  { "step": 1, "title": "Discover", "detail": "Scope the real problem before touching code." },
+  { "step": 2, "title": "Architect", "detail": "Design the system, not just the screens." },
+  { "step": 3, "title": "Build", "detail": "Ship in increments you can see and use." },
+  { "step": 4, "title": "Harden", "detail": "Tests, monitoring, and load before launch." },
+  { "step": 5, "title": "Operate", "detail": "Stay on as the system meets real traffic." }
+]

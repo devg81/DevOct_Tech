@@ -1,0 +1,74 @@
+/* ──────────────────────────────────────────────
+   devoct design tokens
+   Palette: warm near-black base, phosphor amber signal,
+   cool teal for secondary structure, off-white for text.
+   ────────────────────────────────────────────── */
+
+:root {
+  /* Color */
+  --bg-base: #0b0f0d;        /* warm near-black, not pure black */
+  --bg-raised: #111613;      /* panel / card surface */
+  --bg-terminal: #06080a;    /* terminal chrome background */
+  --ink: #ece8de;            /* primary text, warm off-white */
+  --ink-dim: #8d948e;        /* secondary text */
+  --signal: #ffb02e;         /* phosphor amber — the one accent */
+  --signal-dim: #7a5a1f;     /* amber at low intensity, for borders */
+  --structure: #3d5c56;      /* muted teal — dividers, labels, rules */
+
+  /* Type */
+  --font-display: "IBM Plex Mono", "SF Mono", monospace;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --fs-eyebrow: 0.8125rem;
+  --fs-body: 1rem;
+  --fs-h3: 1.5rem;
+  --fs-h2: 2.25rem;
+  --fs-h1: clamp(2.75rem, 6vw, 5.5rem);
+
+  /* Layout */
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --max-width: 1280px;
+  --radius: 2px; /* sharp, terminal-like — no soft rounding */
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 150ms;
+  --dur-base: 400ms;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-base);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
