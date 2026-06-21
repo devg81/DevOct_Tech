@@ -1,102 +1,46 @@
-import { Routes, Route, NavLink } from "react-router-dom";
+import { useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 
-/* ──────────────────────────────────────────────
-   TEMPORARY inline stand-ins.
-   These get replaced 1:1 by their real files as we build:
-     <NavPlaceholder />   →  components/layout/Navbar.jsx
-     <FooterPlaceholder /> → components/layout/Footer.jsx
-     <Placeholder name="Home" /> → pages/Home.jsx, etc.
-   Keeping the route map real now so nothing has to be
-   rewired later — only the contents behind each route change.
-   ────────────────────────────────────────────── */
+import { SceneProvider } from "./context/SceneContext.jsx";
+import Navbar from "./components/layout/Navbar.jsx";
+import Footer from "./components/layout/Footer.jsx";
+import PageTransition from "./components/layout/PageTransition.jsx";
+import CursorTrail from "./components/overlays/CursorTrail.jsx";
 
-const NAV_LINKS = [
-  { to: "/", label: "home" },
-  { to: "/services", label: "services" },
-  { to: "/work", label: "work" },
-  { to: "/process", label: "process" },
-  { to: "/about", label: "about" },
-  { to: "/contact", label: "contact" },
-];
+import Home from "./pages/Home.jsx";
+import Services from "./pages/Services.jsx";
+import Work from "./pages/Work.jsx";
+import Process from "./pages/Process.jsx";
+import About from "./pages/About.jsx";
+import Contact from "./pages/Contact.jsx";
 
-function NavPlaceholder() {
-  return (
-    <nav
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "1.25rem var(--gutter)",
-        borderBottom: "1px solid var(--signal-dim)",
-        fontFamily: "var(--font-display)",
-        fontSize: "var(--fs-eyebrow)",
-      }}
-    >
-      <span style={{ color: "var(--signal)" }}>devoct_</span>
-      <div style={{ display: "flex", gap: "1.5rem" }}>
-        {NAV_LINKS.map((link) => (
-          <NavLink
-            key={link.to}
-            to={link.to}
-            style={({ isActive }) => ({
-              color: isActive ? "var(--signal)" : "var(--ink-dim)",
-            })}
-          >
-            {link.label}
-          </NavLink>
-        ))}
-      </div>
-    </nav>
-  );
-}
-
-function FooterPlaceholder() {
-  return (
-    <footer
-      style={{
-        padding: "2rem var(--gutter)",
-        borderTop: "1px solid var(--signal-dim)",
-        color: "var(--ink-dim)",
-        fontFamily: "var(--font-display)",
-        fontSize: "var(--fs-eyebrow)",
-      }}
-    >
-      © {new Date().getFullYear()} devoct — built, not generated.
-    </footer>
-  );
-}
-
-function Placeholder({ name }) {
-  return (
-    <main
-      style={{
-        minHeight: "70vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontFamily: "var(--font-display)",
-        color: "var(--ink-dim)",
-      }}
-    >
-      {"// "}
-      {name} page — next up
-    </main>
-  );
+// Scrolls to top on every route change — without this, navigating from the
+// bottom of a long page (e.g. Work) to a new route keeps the old scroll position.
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
 }
 
 export default function App() {
   return (
-    <>
-      <NavPlaceholder />
-      <Routes>
-        <Route path="/" element={<Placeholder name="Home" />} />
-        <Route path="/services" element={<Placeholder name="Services" />} />
-        <Route path="/work" element={<Placeholder name="Work" />} />
-        <Route path="/process" element={<Placeholder name="Process" />} />
-        <Route path="/about" element={<Placeholder name="About" />} />
-        <Route path="/contact" element={<Placeholder name="Contact" />} />
-      </Routes>
-      <FooterPlaceholder />
-    </>
+    <SceneProvider>
+      <CursorTrail />
+      <ScrollToTop />
+      <Navbar />
+      <PageTransition>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/work" element={<Work />} />
+          <Route path="/process" element={<Process />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </PageTransition>
+      <Footer />
+    </SceneProvider>
   );
 }
