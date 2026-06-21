@@ -16,6 +16,45 @@
   color: var(--signal);
 }
 
+/* Underline-grow hover — adapted from the snippet you shared, as a plain
+   CSS class so it works on any link/button without adding styled-components
+   as a dependency. */
+.link-underline {
+  position: relative;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  transition: color 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.link-underline::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0%;
+  height: 2px;
+  background-color: var(--signal);
+  transition: width 400ms cubic-bezier(0.25, 0.8, 0.25, 1),
+    left 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.link-underline:hover,
+.link-underline:focus {
+  color: var(--ink);
+}
+
+.link-underline:hover::after,
+.link-underline:focus::after {
+  width: 100%;
+  left: 0%;
+}
+
+.navbar__link:hover {
+  color: var(--ink);
+}
+
 .navbar__links {
   display: flex;
   gap: 1.5rem;

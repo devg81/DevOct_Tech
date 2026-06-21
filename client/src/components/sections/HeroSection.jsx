@@ -23,17 +23,20 @@ export default function HeroSection() {
           <SectionLabel>devoct / engineering studio</SectionLabel>
         </p>
         <h1 ref={headlineRef} className="hero__headline">
-          We build software like it ships to production —
+          Software for everything
           <br />
-          not to a slide deck.
+          you build.
         </h1>
+        <p className="hero__subhead">
+          Engineering, design, and infrastructure — shipped by the people who built it.
+        </p>
         <div ref={ctaRef} className="hero__cta">
           <Button as="a" href="/contact">
             start a project
           </Button>
-          <Button as="a" href="/work" variant="ghost">
+          <a href="/work" className="link-underline hero__cta-link">
             see the work
-          </Button>
+          </a>
         </div>
 
         <div className="hero__metrics">

@@ -1,19 +1,20 @@
 /* ──────────────────────────────────────────────
-   devoct design tokens
-   Palette: warm near-black base, phosphor amber signal,
-   cool teal for secondary structure, off-white for text.
+   devoct design tokens — v2
+   Palette source: Gochujang Red / Crimson Blaze / Varden / Cosmos Blue
+   Structure inspired by x.ai: near-black canvas, oversized type, minimal accent.
    ────────────────────────────────────────────── */
 
 :root {
   /* Color */
-  --bg-base: #0b0f0d;        /* warm near-black, not pure black */
-  --bg-raised: #111613;      /* panel / card surface */
-  --bg-terminal: #06080a;    /* terminal chrome background */
-  --ink: #ece8de;            /* primary text, warm off-white */
-  --ink-dim: #8d948e;        /* secondary text */
-  --signal: #ffb02e;         /* phosphor amber — the one accent */
-  --signal-dim: #7a5a1f;     /* amber at low intensity, for borders */
-  --structure: #3d5c56;      /* muted teal — dividers, labels, rules */
+  --bg-base: #080707;        /* near-black canvas */
+  --bg-raised: #120c0c;      /* panel / card surface */
+  --bg-terminal: #050404;    /* terminal chrome background */
+  --ink: #fef0d5;            /* Varden — warm cream, primary headline color */
+  --ink-dim: #9a8f80;        /* secondary text, dimmed cream */
+  --signal: #c1121f;         /* Crimson Blaze — the one accent */
+  --signal-deep: #780001;    /* Gochujang Red — hover/gradient depth */
+  --signal-dim: #4a1014;     /* low-intensity accent, borders */
+  --structure: #002f49;      /* Cosmos Blue — dividers, structural rules */
 
   /* Type */
   --font-display: "IBM Plex Mono", "SF Mono", monospace;
@@ -22,13 +23,13 @@
   --fs-eyebrow: 0.8125rem;
   --fs-body: 1rem;
   --fs-h3: 1.5rem;
-  --fs-h2: 2.25rem;
-  --fs-h1: clamp(2.75rem, 6vw, 5.5rem);
+  --fs-h2: 2.5rem;
+  --fs-h1: clamp(3rem, 8vw, 7rem);
 
   /* Layout */
   --gutter: clamp(1.25rem, 4vw, 3rem);
   --max-width: 1280px;
-  --radius: 2px; /* sharp, terminal-like — no soft rounding */
+  --radius: 2px;
 
   /* Motion */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);

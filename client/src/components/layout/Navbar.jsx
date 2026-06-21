@@ -26,7 +26,7 @@ export default function Navbar() {
             key={link.to}
             to={link.to}
             className={({ isActive }) =>
-              `navbar__link${isActive ? " navbar__link--active" : ""}`
+              `navbar__link link-underline${isActive ? " navbar__link--active" : ""}`
             }
           >
             {link.label}
@@ -51,7 +51,7 @@ export default function Navbar() {
               to={link.to}
               onClick={() => setOpen(false)}
               className={({ isActive }) =>
-                `navbar__link${isActive ? " navbar__link--active" : ""}`
+                `navbar__link link-underline${isActive ? " navbar__link--active" : ""}`
               }
             >
               {link.label}

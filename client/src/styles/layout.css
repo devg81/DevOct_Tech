@@ -37,6 +37,24 @@ section {
   margin-top: 2.5rem;
 }
 
+.hero__subhead {
+  font-size: 1.125rem;
+  color: var(--ink-dim);
+  max-width: 480px;
+  margin-top: 1.25rem;
+}
+
+.hero__cta {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.hero__cta-link {
+  font-size: var(--fs-eyebrow);
+}
+
 .services-index__layout,
 .process-steps__layout {
   display: grid;
